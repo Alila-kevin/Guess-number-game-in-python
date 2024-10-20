@@ -97,7 +97,6 @@ print(c[4:-2])
 print(c)
 for x in c:
     print(x)
-f =0
-while f < c[4]:
-    print(c[f])
-    f+=1
+
+print(reversed(a))
+
