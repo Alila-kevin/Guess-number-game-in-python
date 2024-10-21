@@ -1,35 +1,39 @@
 import random
-
-userw = 0
-compw = 0
-options = ["rock", "paper", "scissors"]
+compt=0
+usert=0
+same=0
+saw={'R': "Rock", 'P': "paper", 'S': "Scissors"}
+options=tuple(saw.keys())
 
 while True:
-    userin = input("Type Rock/Paper/Scissors or Q to quit: ").lower()
-    if userin == 'q':
-        break  # Use break instead of quit() for a cleaner exit
-
-    if userin not in options:
-        print("Please choose Rock, Paper, or Scissors.")
-        continue  # Continue to the next iteration if the input is invalid
-
-    randno = random.randint(0, 2)
-    compin = options[randno]
-    print(f"The computer chose: {compin}")  # Show the computer's choice
-
-    # Determine the winner
-    if (userin == 'paper' and compin == 'rock') or \
-       (userin == 'scissors' and compin == 'paper') or \
-       (userin == 'rock' and compin == 'scissors'):
-        print("You are a winner!")
-        userw += 1
-    elif userin == compin:
-        print("It's a tie!")
+    play =input("Do you want to play Rock/Paper/Scissor?(Y/N): ").upper()
+    if play =='Y':
+      useri=input("Choose: Rock/Paoer/Scissor(R/P/S): ").upper()
+      rand=random.randint(0, 2)
+      compi=options[rand]
+      if useri not in options:
+        print("Invalid choice")
+      elif ((useri =='P' and compi =='R')
+             or (useri =='S' and compi =='P')
+             or (useri =='R' and compi =='S')):
+        print(f"You win {saw[useri]}")
+        print(f"computer chose {saw[compi]}")
+        usert+=1
+      elif useri==compi:
+        print("You tie")
+        print(f"You choose {saw[useri]}")
+        print(f"computer choose {saw[compi]}")
+        same +=1
+      else:
+       print("Computer won")
+       print(f"You choose {saw[useri]}")
+       print(f"computer choose {saw[compi]}")
+       compt+=1
+    elif play=='N':
+      print("Goodby!")
+      break
     else:
-        print("You lose.")
-        compw += 1
+        print("invalid choice")
+total=compt + same + usert
 
-# Final results
-print("You won", userw, "times.")
-print("The computer won", compw, "times.")
-print("Goodbye!")
+print(f"out of {total} you won {usert}, drow of {same} computer won {compt}")
