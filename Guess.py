@@ -1,6 +1,6 @@
 import random
 
-print("Number guessing Game")
+print("Number Guessing Game (NGG)")
 
 range = input("please enter the range: ")
 
