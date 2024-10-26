@@ -19,4 +19,4 @@ for price in prices:
     total +=price
     
 print()    
-print(f"Your ttotal is ${total}")
+print(f"Your total is ${total}")
